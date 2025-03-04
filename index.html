@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vinnu's Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <style>
+        :root {
+            --bg-dark: #0f172a;
+            --bg-light: #f8fafc;
+            --text-dark: #ffffff;
+            --text-light: #1e293b;
+        }
+        body {
+            transition: background 0.3s, color 0.3s;
+        }
+        .dark-mode {
+            background: var(--bg-dark);
+            color: var(--text-dark);
+        }
+        .light-mode {
+            background: var(--bg-light);
+            color: var(--text-light);
+        }
+		
+
+        /* Background Animation */
+        .animated-bg {
+            position: absolute;
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            opacity: 0.6;
+            z-index: -1;
+        }
+        .shape1 { background: linear-gradient(45deg, #3b82f6, #06b6d4); animation: float1 6s infinite alternate ease-in-out; }
+        .shape2 { background: linear-gradient(45deg, #f87171, #facc15); animation: float2 5s infinite alternate ease-in-out; }
+        .shape3 { background: linear-gradient(45deg, #10b981, #3b82f6); animation: float3 7s infinite alternate ease-in-out; }
+
+        @keyframes float1 {
+            0% { transform: translate(-10px, -10px); }
+            100% { transform: translate(20px, 20px); }
+        }
+        @keyframes float2 {
+            0% { transform: translate(15px, -15px); }
+            100% { transform: translate(-15px, 25px); }
+        }
+        @keyframes float3 {
+            0% { transform: translate(-20px, 10px); }
+            100% { transform: translate(25px, -10px); }
+        }
+
+        /* Section Container */
+        .section-container {
+            position: relative;
+            max-width: 900px;
+            margin: auto;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(10px);
+            overflow: hidden;
+        }
+
+        /* Mode Toggle Button */
+        .toggle-btn {
+            background: #3b82f6;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background 0.3s;
+        }
+        .toggle-btn:hover {
+            background: #2563eb;
+        }
+/* Profile Image Glow on Hover */
+#profileImage {
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+#profileImage:hover {
+    transform: scale(1.1);
+    box-shadow: 0px 0px 20px rgba(0, 123, 255, 0.8); /* Blue glow effect */
+}
+
+/* Ensure the effect resets instantly when cursor leaves */
+#profileImage:not(:hover) {
+    transform: scale(1);
+}
+
+
+
+
+
+
+
+
+		
+    </style>
+</head>
+<body class="dark-mode">
+<!-- Navigation Bar -->
+<nav class="fixed top-0 left-0 w-full bg-gray-800 bg-opacity-90 shadow-md py-4 z-50 flex justify-between items-center px-6">
+    <h2 class="text-2xl font-bold text-blue-400">Vinnu</h2>
+    <ul class="flex space-x-6 text-white">
+        <li><a href="#home" class="hover:text-blue-400 transition">Home</a></li>
+        <li><a href="#about" class="hover:text-blue-400 transition">About</a></li>
+        <li><a href="#skills" class="hover:text-blue-400 transition">Skills</a></li>
+        <li><a href="#projects" class="hover:text-blue-400 transition">Projects</a></li>
+    </ul>
+</nav>
+
+<!-- Light/Dark Mode Toggle -->
+<div class="flex justify-center mt-20">
+    <button id="modeToggle" class="toggle-btn">🌗 Mode</button>
+</div>
+
+<!-- Image Section -->
+<section class="h-screen flex flex-col justify-center items-center relative">
+    <!-- Animated Shapes -->
+    <div class="animated-bg shape1 absolute top-10 left-10 w-20 h-20 rounded-full"></div>
+    <div class="animated-bg shape2 absolute top-20 right-20 w-20 h-20 rounded-full"></div>
+    <div class="animated-bg shape3 absolute bottom-10 left-1/2 transform -translate-x-1/2 w-24 h-24 rounded-full"></div>
+
+    <!-- Profile Image -->
+    <img id="profileImage" src="https://avatars.githubusercontent.com/u/82692760?v=4" alt="Vinnu" class="w-48 h-48 rounded-full border-4 border-blue-400 shadow-lg opacity-0">
+
+    <!-- Name with Animation -->
+    <h1 id="profileName" class="text-4xl font-bold text-blue-400 mt-4 opacity-0">Vinuthna Kumar Sallapudi</h1>
+</section>
+ <br>
+    <br>
+	 <br>
+	  <br>
+	  <br>
+	  <br>
+    <br>
+	 <br>
+	  <br>
+	  <br>
+<!-- Home Section -->
+<section id="home" class="h-screen flex justify-center items-center relative">
+    <div class="section-container text-center">
+        <div class="animated-bg shape1"></div>
+        <div class="animated-bg shape2"></div>
+        <div class="animated-bg shape3"></div>
+        <h1 class="text-4xl font-bold text-blue-400 mb-4">Welcome to My Portfolio</h1>
+        <p class="text-lg leading-relaxed">
+            I'm <span class="font-semibold text-blue-300">Vinnu</span>, a <strong>Full-Stack Developer</strong> with expertise in 
+            <strong>Frontend & Backend Development, IoT, Database Management, Data Visualization, and Cloud Deployment</strong>.
+        </p>
+        <br>
+        <p class="text-lg leading-relaxed">
+            I specialize in building interactive and scalable web applications using modern technologies like 
+            HTML, CSS, and JavaScript for the frontend, and PHP, and MySQL for the backend.  
+            My expertise also extends to database design & management, ensuring data efficiency and security.
+        </p>
+ <br>
+        <p class="text-lg leading-relaxed">
+            In addition, I have hands-on experience with IoT (Internet of Things), integrating hardware with software to create smart solutions.  
+            I leverage Power BI & other data visualization tools to transform raw data into meaningful insights, making data-driven decisions easier.
+        </p>
+ <br>
+        <p class="text-lg leading-relaxed">
+            I am proficient in working with XAMPP, and various hosting platforms  
+            to deploy and manage applications efficiently. My projects range from attendance tracking systems to  
+            task management apps, showcasing my ability to create real-world solutions with strong technical foundations.
+        </p>
+ <br>
+        <p class="text-lg leading-relaxed">
+            With a passion for problem-solving and innovation, I continuously explore new technologies to stay ahead in the industry.  
+            Whether it's designing intuitive UI/UX, developing complex backend systems, or implementing secure data structures,  
+            I am committed to delivering high-quality solutions that drive efficiency and user engagement.
+        </p>
+    </div>
+</section>
+
+
+<script>
+    // Light/Dark Mode Toggle
+    document.getElementById("modeToggle").addEventListener("click", function () {
+        document.body.classList.toggle("dark-mode");
+        document.body.classList.toggle("light-mode");
+    });
+
+    // GSAP Animation for Image Section
+    window.onload = function () {
+        gsap.to("#profileImage", { opacity: 1, y: -20, duration: 1.2, ease: "power3.out" });
+        gsap.to("#profileName", { opacity: 1, y: -10, duration: 1.5, delay: 0.3, ease: "power3.out" });
+    };
+</script>
+ <br>
+  <br>
+   <br>
+    <br>
+	 <br>
+	  <br>
+	  <br>
+	  <br>
+    <br>
+	 <br>
+	  <br>
+	  <br>
+
+
+<!-- About Me Section -->
+<section id="about" class="h-screen flex justify-center items-center relative">
+    <div class="section-container text-center max-w-4xl mx-auto px-6 shadow-lg rounded-lg p-10">
+        <div class="animated-bg shape1"></div>
+        <div class="animated-bg shape2"></div>
+        <div class="animated-bg shape3"></div>
+        <h2 class="text-4xl font-bold text-blue-600 dark:text-blue-400">About Me</h2>
+
+        <!-- Personal Introduction -->
+        <p class="text-lg leading-relaxed">
+            Hello! I'm <span class="font-semibold text-blue-500 dark:text-blue-300">Vinnu</span>, a <strong>Full-Stack Developer</strong> passionate about building efficient, scalable, and innovative solutions.
+        </p>
+
+        <!-- Education -->
+        <div class="mt-6">
+            <h3 class="text-2xl font-semibold text-blue-600 dark:text-blue-400">Education</h3>
+        <p class="text-lg leading-relaxed">
+                🎓 Engineering Graduate from <strong>Aditya College of Engineering and Technology</strong> under JNTUK University (2024).  
+                🏫 Intermediate (M.P.C) from Sri Chaitanya Jr. College (2020).
+            </p>
+        </div>
+
+        <!-- Skills & Technologies -->
+        <div class="mt-6">
+            <h3 class="text-2xl font-semibold text-blue-600 dark:text-blue-400">Skills & Technologies</h3>
+            <ul class="text-lg leading-relaxed text-left inline-block">
+                <li>🔹 <strong>Frontend:</strong> HTML, CSS, JavaScript, Tailwind CSS, React.js</li>
+                <li>🔹 <strong>Backend:</strong> PHP, XAMPP</li>
+                <li>🔹 <strong>Database:</strong> MySQL, SQL</li>
+                <li>🔹 <strong>IoT Development:</strong> Hardware-Software Integration, IoT Solutions</li>
+                <li>🔹 <strong>Data Visualization:</strong> Power BI, Excel Data Analysis</li>
+                <li>🔹 <strong>Other:</strong> Resume Designing, Logo Designing, Sample Android Apps</li>
+            </ul>
+        </div>
+
+        <!-- Work & Projects -->
+        <div class="mt-6">
+            <h3 class="text-2xl font-semibold text-blue-600 dark:text-blue-400">Projects & Experience</h3>
+            <ul class="text-lg leading-relaxed text-left inline-block">
+                <li>📌 Attendance Website - Advanced attendance tracking system.</li>
+                <li>📌 Social Media Platform - Features include chatting & sharing.</li>
+                <li>📌 CRM Website - Customer Relationship Management platform.</li>
+                <li>📌 E-commerce Rental Website - Renting furniture, appliances, and vehicles.</li>
+                <li>📌 Task Management System - Interactive task tracking.</li>
+                <li>📌 IoT-Based Solutions - Smart IoT applications.</li>
+            </ul>
+        </div>
+
+        <!-- Passion & Goals -->
+        <div class="mt-6">
+            <h3 class="text-2xl font-semibold text-blue-600 dark:text-blue-400">Passion & Goals</h3>
+        <p class="text-lg leading-relaxed">
+                I am passionate about technology, problem-solving, and creating user-friendly digital solutions.  
+                My goal is to **develop high-end applications** that enhance business efficiency and user experiences.  
+                I'm also exploring **AI, Machine Learning, and Blockchain** to expand my expertise.
+            </p>
+        </div>
+    </div>
+</section>
+
+
+
+ <br>
+  <br>
+   <br>
+    <br>
+	 <br>
+	  <br>
+	  <br>
+	  <br>
+	   <br>
+    <br>
+	 <br>
+	  <br>
+	  <br>
+	  <br>
+    <br>
+	 <br>
+	  <br>
+	 <br>
+	  
+	  <br>
+	  <br>
+
+<!-- Skills Section -->
+<section id="skills" class="h-screen flex justify-center items-center relative">
+    <div class="section-container text-center max-w-4xl mx-auto px-6">
+        <div class="animated-bg shape1"></div>
+        <div class="animated-bg shape3"></div>
+
+        <h2 class="text-4xl font-bold text-blue-600 dark:text-blue-400">Skills & Technologies</h2>
+
+        <!-- Skills Grid -->
+        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 mt-6">
+            <!-- Frontend Skills -->
+            <div class="p-4 rounded-lg bg-blue-500 dark:bg-blue-600 text-white font-semibold shadow-md">HTML</div>
+            <div class="p-4 rounded-lg bg-blue-500 dark:bg-blue-600 text-white font-semibold shadow-md">CSS</div>
+            <div class="p-4 rounded-lg bg-blue-500 dark:bg-blue-600 text-white font-semibold shadow-md">JavaScript</div>
+            <div class="p-4 rounded-lg bg-blue-500 dark:bg-blue-600 text-white font-semibold shadow-md">Tailwind CSS</div>
+            <div class="p-4 rounded-lg bg-blue-500 dark:bg-blue-600 text-white font-semibold shadow-md">React.js</div>
+
+            <!-- Backend Skills -->
+            <div class="p-4 rounded-lg bg-blue-500 dark:bg-blue-600 text-white font-semibold shadow-md">PHP</div>
+            <div class="p-4 rounded-lg bg-blue-500 dark:bg-blue-600 text-white font-semibold shadow-md">XAMPP</div>
+
+            <!-- Database Skills -->
+            <div class="p-4 rounded-lg bg-blue-500 dark:bg-blue-600 text-white font-semibold shadow-md">MySQL</div>
+            <div class="p-4 rounded-lg bg-blue-500 dark:bg-blue-600 text-white font-semibold shadow-md">SQL</div>
+
+            <!-- IoT & Embedded Systems -->
+            <div class="p-4 rounded-lg bg-blue-500 dark:bg-blue-600 text-white font-semibold shadow-md">IoT Development</div>
+            <div class="p-4 rounded-lg bg-blue-500 dark:bg-blue-600 text-white font-semibold shadow-md">Hardware Integration</div>
+
+            <!-- Data Visualization & Analytics -->
+            <div class="p-4 rounded-lg bg-blue-500 dark:bg-blue-600 text-white font-semibold shadow-md">Power BI</div>
+            <div class="p-4 rounded-lg bg-blue-500 dark:bg-blue-600 text-white font-semibold shadow-md">Excel Data Analysis</div>
+
+            <!-- Other Skills -->
+            <div class="p-4 rounded-lg bg-blue-500 dark:bg-blue-600 text-white font-semibold shadow-md">Resume Designing</div>
+            <div class="p-4 rounded-lg bg-blue-500 dark:bg-blue-600 text-white font-semibold shadow-md">Logo Designing</div>
+            <div class="p-4 rounded-lg bg-blue-500 dark:bg-blue-600 text-white font-semibold shadow-md">Android App Development</div>
+            <div class="p-4 rounded-lg bg-blue-500 dark:bg-blue-600 text-white font-semibold shadow-md">Software Development</div>
+        </div>
+    </div>
+</section>
+ <br>
+    <br>
+	 <br>
+	  <br>
+	  <br>
+	  <br>
+    <br>
+	
+
+<!-- Projects Section -->
+<section id="projects" class="h-screen flex justify-center items-center relative">
+    <div class="section-container text-center max-w-5xl mx-auto px-6">
+        <div class="animated-bg shape2"></div>
+        <div class="animated-bg shape3"></div>
+
+        <h2 class="text-4xl font-bold text-blue-600 dark:text-blue-400">Projects & Experience</h2>
+
+        <!-- Projects Grid -->
+        <div class="mt-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            <a href="#" class="p-6 rounded-lg bg-blue-500 text-white font-semibold shadow-md block hover:bg-blue-600 transition-colors">CRM System</a>
+            <a href="#" class="p-6 rounded-lg bg-blue-500 text-white font-semibold shadow-md block hover:bg-blue-600 transition-colors">Attendance Management</a>
+            <a href="#" class="p-6 rounded-lg bg-blue-500 text-white font-semibold shadow-md block hover:bg-blue-600 transition-colors">Social Media Platform</a>
+            <a href="#" class="p-6 rounded-lg bg-blue-500 text-white font-semibold shadow-md block hover:bg-blue-600 transition-colors">E-commerce Rental Website</a>
+            <a href="#" class="p-6 rounded-lg bg-blue-500 text-white font-semibold shadow-md block hover:bg-blue-600 transition-colors">Task Management System</a>
+            <a href="#" class="p-6 rounded-lg bg-blue-500 text-white font-semibold shadow-md block hover:bg-blue-600 transition-colors">IoT-Based Solutions</a>
+            <a href="#" class="p-6 rounded-lg bg-blue-500 text-white font-semibold shadow-md block hover:bg-blue-600 transition-colors">Voting App</a>
+            <a href="#" class="p-6 rounded-lg bg-blue-500 text-white font-semibold shadow-md block hover:bg-blue-600 transition-colors">Flappy Bird Game</a>
+            <a href="#" class="p-6 rounded-lg bg-blue-500 text-white font-semibold shadow-md block hover:bg-blue-600 transition-colors">Calculator App</a>
+            <a href="#" class="p-6 rounded-lg bg-blue-500 text-white font-semibold shadow-md block hover:bg-blue-600 transition-colors">Timer</a>
+            <a href="#" class="p-6 rounded-lg bg-blue-500 text-white font-semibold shadow-md block hover:bg-blue-600 transition-colors">Task Management</a>
+            <a href="#" class="p-6 rounded-lg bg-blue-500 text-white font-semibold shadow-md block hover:bg-blue-600 transition-colors">Tic-Tac-Toe</a>
+        </div>
+    </div>
+</section>
+
+
+
+<!-- Footer Section -->
+<footer class="bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-gray-300 py-6">
+    <div class="max-w-6xl mx-auto px-6">
+        <div class="flex flex-col md:flex-row justify-between items-center text-center md:text-left">
+            
+            <!-- Footer Logo & Branding -->
+            <div>
+                <h2 class="text-2xl font-bold text-blue-600 dark:text-blue-400">Vinnu</h2>
+                <p class="text-sm mt-2">Building scalable & innovative solutions.</p>
+            </div>
+
+            <!-- Quick Navigation Links -->
+            <div class="mt-4 md:mt-0">
+                <ul class="flex flex-wrap justify-center md:justify-start gap-6">
+                    <li><a href="#about" class="hover:text-blue-500">About</a></li>
+                    <li><a href="#projects" class="hover:text-blue-500">Projects</a></li>
+                    <li><a href="#contact" class="hover:text-blue-500">Contact</a></li>
+                </ul>
+            </div>
+
+            <!-- Social Media Links -->
+            <div class="mt-4 md:mt-0">
+                <ul class="flex space-x-4">
+                    <li>
+                        <a href="https://github.com/vinnu1234-su" target="_blank" class="hover:text-blue-500">
+                            <i class="fab fa-github text-xl"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://linkedin.com/in/vinnu" target="_blank" class="hover:text-blue-500">
+                            <i class="fab fa-linkedin text-xl"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="mailto:vinnu.12434@gmail.com" class="hover:text-blue-500">
+                            <i class="fas fa-envelope text-xl"></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Copyright & Disclaimer -->
+        <div class="text-center text-sm mt-6 border-t border-gray-300 dark:border-gray-700 pt-4">
+            <p>© 2025 Vinnu. All rights reserved.</p>
+        </div>
+    </div>
+</footer>
+
+<!-- FontAwesome for Icons -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/js/all.min.js"></script>
+
+</body>
+</html>
