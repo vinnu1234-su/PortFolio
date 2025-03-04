@@ -4,8 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vinnu's Portfolio</title>
+	
+	<link rel="icon" type="image/png" href="https://avatars.githubusercontent.com/u/82692760?v=4"> <!-- If you saved as PNG -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
     <style>
         :root {
             --bg-dark: #0f172a;
@@ -181,18 +186,78 @@
 </section>
 
 
+
 <script>
-    // Light/Dark Mode Toggle
-    document.getElementById("modeToggle").addEventListener("click", function () {
-        document.body.classList.toggle("dark-mode");
-        document.body.classList.toggle("light-mode");
+    document.addEventListener("DOMContentLoaded", function () {
+        const modeToggle = document.getElementById("modeToggle");
+        const htmlElement = document.documentElement; // Targets the root element
+
+        // Check if user has a preferred mode stored
+        if (localStorage.getItem("theme") === "dark") {
+            htmlElement.classList.add("dark");
+        }
+
+        // Toggle mode when button is clicked
+        modeToggle.addEventListener("click", function () {
+            if (htmlElement.classList.contains("dark")) {
+                htmlElement.classList.remove("dark");
+                localStorage.setItem("theme", "light");
+            } else {
+                htmlElement.classList.add("dark");
+                localStorage.setItem("theme", "dark");
+            }
+        });
     });
+
+
 
     // GSAP Animation for Image Section
     window.onload = function () {
         gsap.to("#profileImage", { opacity: 1, y: -20, duration: 1.2, ease: "power3.out" });
         gsap.to("#profileName", { opacity: 1, y: -10, duration: 1.5, delay: 0.3, ease: "power3.out" });
     };
+	document.addEventListener("DOMContentLoaded", function () {
+    // GSAP Animation for Image Section
+    gsap.to("#profileImage", { opacity: 1, y: -20, duration: 1.2, ease: "power3.out" });
+    gsap.to("#profileName", { opacity: 1, y: -10, duration: 1.5, delay: 0.3, ease: "power3.out" });
+
+    // Scroll Trigger Animations for Sections
+    const sections = document.querySelectorAll("section");
+    sections.forEach((section) => {
+        gsap.from(section, {
+            opacity: 0,
+            y: 50,
+            duration: 1,
+            ease: "power3.out",
+            scrollTrigger: {
+                trigger: section,
+                start: "top 80%", // Starts animation when 80% of the section is in view
+                toggleActions: "play none none reverse"
+            }
+        });
+    });
+
+    // Light/Dark Mode Toggle
+    document.getElementById("modeToggle").addEventListener("click", function () {
+        document.body.classList.toggle("dark-mode");
+        document.body.classList.toggle("light-mode");
+    });
+});
+document.querySelectorAll('nav a').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const targetId = this.getAttribute('href').substring(1);
+            document.getElementById(targetId).scrollIntoView({
+                behavior: 'smooth'
+            });
+        });
+    });
+	var typed = new Typed("#profileName", {
+        strings: ["Vinuthna Kumar Sallapudi", "Full-Stack Developer", "Tech Enthusiast"],
+        typeSpeed: 80,
+        backSpeed: 50,
+        loop: true
+    });
 </script>
  <br>
   <br>
@@ -200,6 +265,29 @@
     <br>
 	 <br>
 	  <br>
+	  <br>
+	  <br>
+	  <br>
+    <br>
+	 <br>
+	  <br>
+	  <br>
+	  <br>
+    <br>
+	 <br>
+	  <br>
+	  <br>	  <br>
+	  <br>
+	  <br>
+    <br>
+	 <br>
+	  <br>
+	  <br>	  <br>
+	  <br>
+	 	  <br>
+	  <br>
+	  <br>
+    	  <br>
 	  <br>
 	  <br>
     <br>
@@ -273,24 +361,42 @@
  <br>
   <br>
    <br>
+<br>
+  <br>
+   <br>
     <br>
 	 <br>
 	  <br>
 	  <br>
 	  <br>
-	   <br>
-    <br>
-	 <br>
-	  <br>
-	  <br>
 	  <br>
     <br>
 	 <br>
 	  <br>
+	  <br>
+	  <br>
+    <br>
 	 <br>
-	  
+	  <br>
+	  <br>	  <br>
 	  <br>
 	  <br>
+    <br>
+	 <br>
+	  <br>
+	  <br>	  <br>
+	  <br>
+	 	  <br>
+	  <br>
+	  <br>
+    	  <br>
+	  <br>
+	  <br>
+    <br>
+	 <br>
+	  <br>
+	  <br>
+
 
 <!-- Skills Section -->
 <section id="skills" class="h-screen flex justify-center items-center relative">
@@ -334,13 +440,24 @@
     </div>
 </section>
  <br>
+  <br>
+   <br>
     <br>
 	 <br>
 	  <br>
 	  <br>
 	  <br>
+	  <br>
+    <br>
+	 <br>
+	  <br>
+	  <br>
+	  <br>
+    <br><br>
+	  <br>
     <br>
 	
+
 
 <!-- Projects Section -->
 <section id="projects" class="h-screen flex justify-center items-center relative">
@@ -367,7 +484,39 @@
         </div>
     </div>
 </section>
-
+   <br>
+    <br>
+	 <br>
+	  <br>
+	  <br>
+	  <br>
+	  <br>
+    <br>
+	 <br>
+	  <br>
+	  <br>
+	  <br>
+    <br><br>
+	  <br>
+    <br>
+	   <br>
+    <br>
+	 <br>
+	  <br>
+	 <br><br>
+	  <br>
+    <br>
+	   <br>
+    <br>
+	 <br>
+	  <br><br>
+	 <br>
+	  <br>
+	 <br>
+	 <br>
+	  <br>
+	 
+	
 
 
 <!-- Footer Section -->
